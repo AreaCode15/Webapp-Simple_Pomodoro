@@ -1,13 +1,24 @@
-class  extends StatefulWidget {
-  const ({Key? key}) : super(key: key);
+import 'package:flutter/material.dart';
+import 'package:webapp_simple_pomodoro/components/tempo_input.dart';
 
-  @override
-  State<> createState() => _State();
-}
+class Pomodoro extends StatelessWidget {
+  const Pomodoro({Key? key}) : super(key: key);
 
-class _State extends State<> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Column(
+        children: const [Text("Simple Pomodoro"),
+        TempoInput(
+            title: "Work",
+            value: 25,
+        ),
+          TempoInput(
+            title: "Break",
+            value: 5,
+          ),
+        ],
+      )
+    );
   }
 }
