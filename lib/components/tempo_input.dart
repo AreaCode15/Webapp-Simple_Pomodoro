@@ -14,10 +14,32 @@ class TempoInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(this.title),
+        Text(title),
       Row(
         children: [
-          Text("${this.value}"),
+          ElevatedButton(
+              onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              shape: const CircleBorder(), backgroundColor: Colors.blue,
+              padding: const EdgeInsets.all(5),
+            ),
+              child: const Icon(
+                Icons.arrow_downward_rounded,
+              color: Colors.white,
+              ),
+          ),
+          Text("$value"),
+          ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              shape: const CircleBorder(), backgroundColor: Colors.blue,
+              padding: const EdgeInsets.all(5),
+            ),
+            child: const Icon(
+              Icons.arrow_upward_rounded,
+              color: Colors.white,
+            ),
+          ),
         ],
        ),
       ],
