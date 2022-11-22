@@ -13,9 +13,16 @@ class TempoInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(title),
+        Text(title,
+          style: const TextStyle(
+            fontSize: 25,
+          ),
+        ),
+      const SizedBox(height: 10),
       Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ElevatedButton(
               onPressed: () {},
@@ -28,7 +35,11 @@ class TempoInput extends StatelessWidget {
               color: Colors.white,
               ),
           ),
-          Text("$value"),
+          Text("$value min",
+          style: const TextStyle(
+            fontSize: 18,
+          ),
+          ),
           ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
