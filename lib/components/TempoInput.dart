@@ -3,11 +3,15 @@ import 'package:flutter/material.dart';
 class TempoInput extends StatelessWidget {
   final String title;
   final int value;
+  final void Function()? inc;
+  final void Function()? dec;
 
   const TempoInput({
     Key? key,
     required this.title,
     required this.value,
+    this.inc,
+    this.dec,
   }) : super(key: key);
 
   @override
@@ -25,7 +29,7 @@ class TempoInput extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ElevatedButton(
-              onPressed: () {},
+              onPressed: this.dec,
             style: ElevatedButton.styleFrom(
               shape: const CircleBorder(), backgroundColor: Colors.blue,
               padding: const EdgeInsets.all(5),
@@ -41,7 +45,7 @@ class TempoInput extends StatelessWidget {
           ),
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: this.inc,
             style: ElevatedButton.styleFrom(
               shape: const CircleBorder(), backgroundColor: Colors.blue,
               padding: const EdgeInsets.all(5),
