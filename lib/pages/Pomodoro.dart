@@ -27,14 +27,20 @@ class Pomodoro extends StatelessWidget {
               TempoInput(
                 title: "Work",
                 value: store.workTime,
-                inc: store.increaseworkTime,
+                inc: store.started && store.thisWorking()
+                ? null
+                : store.increaseworkTime,
                 dec: store.decrementworkTime,
               ),
               TempoInput(
                 title: "Break",
                 value: store.restTime,
-                inc: store.increaserestTime,
-                dec: store.decrementrestTime,
+                inc: store.started && store.thisResting()
+                    ? null
+                    : store.increaserestTime,
+                dec: store.started && store.thisResting()
+                    ? null
+                    : store.decrementrestTime,
               ),
             ],
           ))
