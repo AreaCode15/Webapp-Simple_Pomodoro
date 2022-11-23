@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../Store/pomodoro.store.dart';
 
 class TempoInput extends StatelessWidget {
   final String title;
@@ -16,6 +18,7 @@ class TempoInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final store = Provider.of<PomodoroStore>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -31,7 +34,8 @@ class TempoInput extends StatelessWidget {
           ElevatedButton(
               onPressed: this.dec,
             style: ElevatedButton.styleFrom(
-              shape: const CircleBorder(), backgroundColor: Colors.blue,
+              shape: const CircleBorder(),
+              backgroundColor: store.thisWorking() ? Colors.red : Colors.blue,
               padding: const EdgeInsets.all(5),
             ),
               child: const Icon(
@@ -47,7 +51,8 @@ class TempoInput extends StatelessWidget {
           ElevatedButton(
             onPressed: this.inc,
             style: ElevatedButton.styleFrom(
-              shape: const CircleBorder(), backgroundColor: Colors.blue,
+              shape: const CircleBorder(),
+              backgroundColor: store.thisWorking() ? Colors.red : Colors.blue,
               padding: const EdgeInsets.all(5),
             ),
             child: const Icon(

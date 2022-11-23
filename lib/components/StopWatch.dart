@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:webapp_simple_pomodoro/components/StopWatchButton.dart';
 import 'package:provider/provider.dart';
 import '../Store/pomodoro.store.dart';
@@ -11,11 +12,12 @@ class StopWatch extends StatelessWidget {
     final store = Provider.of<PomodoroStore>(context);
 
     return Container(
-      color : Colors.blue,
+      color : store.thisWorking() ? Colors.red : Colors.blue,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text("Time To Work",
+          Text(
+            store.thisWorking() ? "Time To Work" : "Time To Break",
           style: TextStyle(
             fontSize: 40,
             color: Colors.white
@@ -28,30 +30,40 @@ class StopWatch extends StatelessWidget {
           ),
           ),
           const SizedBox(height: 20),
-          Row(
+          Observer(builder: (_) => Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: StopWatchButton(
+            children: [
+              if (!store.started)
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: StopWatchButton(
                     text: "Start",
-                    icon: Icons.play_arrow_rounded),
-              ),
-              //Padding(
-                //padding: EdgeInsets.all(10),
-                //child: StopWatchButton(
-                  //  text: "Stop",
-                    //icon: Icons.stop_rounded),
-              //),
+                    icon: Icons.play_arrow_rounded,
+                    click: store.start,
+                  ),
+                ),
+              if (store.started)
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: StopWatchButton(
+                    text: "Stop",
+                    icon: Icons.stop_rounded,
+                    click: store.stop,
+                  ),
+                ),
               Padding(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: StopWatchButton(
                     text: "Reset",
-                    icon: Icons.refresh_rounded),
-              )
+                    icon: Icons.refresh_rounded,
+                click: store.refresh,
+                ),
+              ),
             ],
-          )
-      ],),
+          ),
+          ),
+        ],
+      ),
     );
   }
 }
