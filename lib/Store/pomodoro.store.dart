@@ -13,16 +13,16 @@ abstract class _PomodoroStore with Store {
   bool started = false;
 
   @observable
-  int minutes = 2;
+  int minutes = 25;
 
   @observable
   int seconds = 0;
 
   @observable
-  int workTime = 2;
+  int workTime = 25;
 
   @observable
-  int restTime = 1;
+  int restTime = 5;
 
   @observable
   IntervalType intervalType = IntervalType.work;
@@ -46,6 +46,7 @@ abstract class _PomodoroStore with Store {
 
   @action
   void stop() {
+    started = false;
     stopwatch?.cancel();
   }
 

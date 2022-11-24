@@ -19,7 +19,10 @@ class StopWatchButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        primary: Colors.deepPurple,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        primary: Colors.white60,
         padding: const EdgeInsets.symmetric(
           horizontal: 30,
           vertical: 10,
