@@ -35,7 +35,7 @@ class TempoInput extends StatelessWidget {
               onPressed: this.dec,
             style: ElevatedButton.styleFrom(
               shape: const CircleBorder(),
-              backgroundColor: store.thisWorking() ? Colors.red : Colors.blue,
+              backgroundColor: store.thisWorking() ? Colors.purple : Colors.blue,
               padding: const EdgeInsets.all(5),
             ),
               child: const Icon(
@@ -52,7 +52,7 @@ class TempoInput extends StatelessWidget {
             onPressed: this.inc,
             style: ElevatedButton.styleFrom(
               shape: const CircleBorder(),
-              backgroundColor: store.thisWorking() ? Colors.red : Colors.blue,
+              backgroundColor: store.thisWorking() ? Colors.purple : Colors.blue,
               padding: const EdgeInsets.all(5),
             ),
             child: const Icon(

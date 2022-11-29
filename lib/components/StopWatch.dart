@@ -14,7 +14,7 @@ class StopWatch extends StatelessWidget {
     return Observer (
       builder: (_) {
         return Container(
-          color : store.thisWorking() ? Colors.red : Colors.blue,
+          color : store.thisWorking() ? Colors.purple : Colors.blue,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
