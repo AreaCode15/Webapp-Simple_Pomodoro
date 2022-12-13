@@ -1,10 +1,16 @@
 # Webapp-Simple_Pomodoro
 Simple Pomodoro / Focus Timer 25-5
+It's a Webapp project, so it's responsive, executable(.exe), website version, and app mobile android & ios version.
 
 Webapp product by Area Code
 Version 1.0
 Copyright 2022 Licences Apache-2.0
 (for more information, read License)
+
+# Next Update (it's a project open-source, you can contribute)
+- Add sound when the work start
+- Add sound when the break start
+- Add sound when the pomodoro is finish
 
 # Used Package
 
